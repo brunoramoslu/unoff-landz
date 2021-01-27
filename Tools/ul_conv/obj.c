@@ -9,6 +9,15 @@
 #include "processing_options.h"
 #include "common.h"
 
+char mtl_filename[OBJ_MATERIALS_NAME_LENGTH];
+
+struct obj_stats_type obj_stats;
+struct obj_vertex_type obj_vertex[MAX_OBJ_VERTEX_COUNT];
+struct obj_texture_type obj_texture[MAX_OBJ_TEXTURE_COUNT];
+struct obj_normal_type obj_normal[MAX_OBJ_NORMAL_COUNT];
+struct obj_face_type obj_face[MAX_OBJ_FACE_COUNT];
+struct obj_material_type obj_material[MAX_OBJ_MATERIAL_COUNT];
+
 void check_obj_bounds(char *filename){
 
     //open the file
@@ -377,7 +386,7 @@ void convert_e3d_to_obj_file(){
     extract_obj_data_from_e3d();
 
     //extract the prefix from the conversion filename
-    char prefix[80]; /** TODO replace hardcoded amount **/
+    char prefix[80-FILENAME_SUFFIX_LENGTH]; /** TODO replace hardcoded amount **/
     get_filename_prefix(p_options.filename, prefix);
 
     //create the obj filename

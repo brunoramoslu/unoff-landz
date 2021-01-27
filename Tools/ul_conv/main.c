@@ -81,11 +81,11 @@ int main(int argc, char *argv[]){
 
     else if(p_options.convert==true){
 
-        if(strcmp(suffix, ".e3d")==0){
+        if(strncmp(suffix, ".e3d", 4)==0){
 
             convert_e3d_to_obj_file();
         }
-        else if(strcmp(suffix, ".obj")==0){
+        else if(strncmp(suffix, ".obj", 4)==0){
 
             convert_obj_to_e3d_file();
         }
@@ -103,7 +103,7 @@ int main(int argc, char *argv[]){
 
     else if(p_options.diagnostics_only==true && p_options.convert==false){
 
-        if(strcmp(suffix, ".e3d")==0){
+        if(strncmp(suffix, ".e3d", 4)==0){
 
             //perform diagnostics on an e3d file
             read_e3d_header(p_options.filename);
@@ -113,7 +113,7 @@ int main(int argc, char *argv[]){
 
             report_e3d_data();
         }
-        else if(strcmp(suffix, ".obj")==0){
+        else if(strncmp(suffix, ".obj", 4)==0){
 
             //perform diagnostics on an obj file
             check_obj_bounds(p_options.filename);

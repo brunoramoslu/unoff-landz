@@ -5,6 +5,8 @@
 
 #include "processing_options.h"
 
+struct p_options_type p_options;
+
 void parse_command_line(int argc, char *argv[]){
 
     //set the default processing options

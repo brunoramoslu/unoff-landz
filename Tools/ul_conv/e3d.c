@@ -6,6 +6,11 @@
 #include "normal.h"
 #include "processing_options.h"
 
+struct e3d_header_type e3d_header;
+struct e3d_vertex_hash_type e3d_vertex_hash[MAX_E3D_VERTEX_COUNT];
+struct e3d_vertex_index_type e3d_vertex_index[MAX_E3D_INDEX_COUNT];
+struct e3d_materials_list_type e3d_materials_list[MAX_E3D_MATERIALS_COUNT];
+
 void read_e3d_header(char *filename){
 
     /*** Reads the header data from an e3d file ***/
@@ -506,12 +511,12 @@ void convert_obj_to_e3d_file(){
     get_md5(MD5_TEMP_FILENAME, E3D_HEADER_OFFSET, e3d_header.md5_hash);
 
     //extract the prefix from the conversion filename
-    char prefix[MAX_FILENAME_LENGTH];
+    char prefix[MAX_FILENAME_LENGTH-FILENAME_SUFFIX_LENGTH]; // .e3d
     get_filename_prefix(p_options.filename, prefix);
 
     //create the e3d filename
     char e3d_filename[MAX_FILENAME_LENGTH];
-    sprintf(e3d_filename, "%s.e3d", prefix);
+    snprintf(e3d_filename, MAX_FILENAME_LENGTH, "%s.e3d", prefix);
 
     create_e3d_file(e3d_filename);
 

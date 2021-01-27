@@ -53,14 +53,14 @@ struct obj_material_type{
     char mtl_name[80];
 };
 
-char mtl_filename[OBJ_MATERIALS_NAME_LENGTH];
+extern char mtl_filename[OBJ_MATERIALS_NAME_LENGTH];
 
-struct obj_stats_type obj_stats;
-struct obj_vertex_type obj_vertex[MAX_OBJ_VERTEX_COUNT];
-struct obj_texture_type obj_texture[MAX_OBJ_TEXTURE_COUNT];
-struct obj_normal_type obj_normal[MAX_OBJ_NORMAL_COUNT];
-struct obj_face_type obj_face[MAX_OBJ_FACE_COUNT];
-struct obj_material_type obj_material[MAX_OBJ_MATERIAL_COUNT];
+extern struct obj_stats_type obj_stats;
+extern struct obj_vertex_type obj_vertex[MAX_OBJ_VERTEX_COUNT];
+extern struct obj_texture_type obj_texture[MAX_OBJ_TEXTURE_COUNT];
+extern struct obj_normal_type obj_normal[MAX_OBJ_NORMAL_COUNT];
+extern struct obj_face_type obj_face[MAX_OBJ_FACE_COUNT];
+extern struct obj_material_type obj_material[MAX_OBJ_MATERIAL_COUNT];
 
 void extract_obj_data_from_e3d();
 void read_obj_data(char *filename);

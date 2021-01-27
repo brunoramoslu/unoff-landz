@@ -14,7 +14,7 @@ struct p_options_type{
     //bool dds;
 };
 
-struct p_options_type p_options;
+extern struct p_options_type p_options;
 
 void parse_command_line(int argc, char *argv[]);
 

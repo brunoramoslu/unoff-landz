@@ -80,10 +80,10 @@ struct e3d_materials_list_type{
     int idx_count;
 };
 
-struct e3d_header_type e3d_header;
-struct e3d_vertex_hash_type e3d_vertex_hash[MAX_E3D_VERTEX_COUNT];
-struct e3d_vertex_index_type e3d_vertex_index[MAX_E3D_INDEX_COUNT];
-struct e3d_materials_list_type e3d_materials_list[MAX_E3D_MATERIALS_COUNT];
+extern struct e3d_header_type e3d_header;
+extern struct e3d_vertex_hash_type e3d_vertex_hash[MAX_E3D_VERTEX_COUNT];
+extern struct e3d_vertex_index_type e3d_vertex_index[MAX_E3D_INDEX_COUNT];
+extern struct e3d_materials_list_type e3d_materials_list[MAX_E3D_MATERIALS_COUNT];
 
 void read_e3d_header(char *filename);
 void read_e3d_vertex_hash(char *filename, int vertex_hash_offset, int vertex_count);
